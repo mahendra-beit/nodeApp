@@ -1,25 +1,40 @@
 <!DOCTYPE html>
-<html lang="en-US">
-      <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
-<script src="angular/angular.min.js"></script>
-<body>
-<div class="container">
-  <div ng-app="myApp" ng-controller="myCtrl">
+<html>
+    <script src="jquery/dist/jquery.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <script src="angular/angular.min.js"></script>
+    <script src="mahi.js"></script>
+<body class="container">
 
-First Name: <input type="text" ng-model="firstName" class="form-control"><br>
-Last Name: <input type="text" ng-model="lastName" class="form-control"><br>
-<br>
-<h3>Full Name: {{firstName + " " + lastName}}</h3>
+<div class="row">
+    <div class="col-md-6">
+        <div ng-app="myApp" ng-controller="myCtrl">
 
+<div class="alert alert-info" >
+                <div >                    
+                    Search a Company: <input type="text" ng-model="pattern" class="form-control" ng-change="readpattern()"><br>
+                </div>
+                <div>
+                    {{pattern}}
+                </div>
+<div>
+                    <ul>
+                        <li ng-repeat="x in companies2">{{x}}</li>
+                    </ul>
+                </div>
+</div>
+                <div>
+                    <ul>
+                                        <li ng-repeat="x in companies">{{x.name}}</li>
+                                    </ul>
+                </div>
+    </div>
 </div>
 
 <script>
-var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope) {
-    $scope.firstName = "John";
-    $scope.lastName = "Doe";
-});
+    
 </script>
-</div>
+
 </body>
 </html>
