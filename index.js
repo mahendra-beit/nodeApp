@@ -1,9 +1,7 @@
 var express = require('express');
 var app = express();
 var fs = require("fs");
-
 var bodyParser = require('body-parser');
-
 var path = require('path');
 var dbroutes = require('./routes/dbroutes');
 var fileUpload = require('express-fileupload');
@@ -24,6 +22,7 @@ app.use(express.static(__dirname+'/public/styles'));
 app.use(express.static(__dirname+"/public/js"));
 app.use(express.static(__dirname+"/resume"));
 app.use(express.static(__dirname+"/bower_components"));
+app.use(express.static(__dirname+"/public/amodule"));
 
 /* routing url */
 app.get('/aboutus',function(req,res){
@@ -43,17 +42,9 @@ app.set('view engine','ejs');
 
 /* text file data  */
 
-/*app.get('/table2',function(req,res){
-    fs.readFile('dbroutes/people',"utf8",function(err,obj){
-            if(err){
-                res.send("No Data Found")
-            }else{
-                let info = JSON.parse(obj);
-                res.render("table",{data:info});
-
-            }
-    })
-});*/
+app.get('/restclient',function(req,res){
+  res.sendFile(__dirname+"/public/views/angular.html")
+});
 
 /* database table  */
 
