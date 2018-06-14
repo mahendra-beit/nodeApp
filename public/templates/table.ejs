@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Table in Ifream Title</title>
+ <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+ <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>File name</th>
+        <th>Resume</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <%
+        for (let x in data){
+     %>
+     <tr>
+     <td><%=data[x].fname%></td>
+     <td><%=data[x].lname%></td>
+     <td><%=data[x].email%></td>
+     <td><%=data[x].resume%></td>
+     <td><img src=<%=data[x].resume%> width="100" height="150"></td>
+     <td> <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-edit"></span> Edit
+        </button>&nbsp;&nbsp;
+</td>
+     </tr>
+     <%
+        }
+     %>
+  </table>
+
+</body>
+</html>
